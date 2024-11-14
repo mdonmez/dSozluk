@@ -6,3 +6,5 @@ A simple German-Turkish dictionary with searcher, level-based sentence generator
 **Running:** Install the requirements and run .py directly to run it on your computer.
 
 **License:** This app licensed under GNU General Public License v3.0.
+
+**Example:** For example look the https://sfttomol.pythonanywhere.com/ website.
