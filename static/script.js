@@ -1,21 +1,18 @@
 // Load dictionary data from text files
 async function loadDictionary() {
     try {
-        const [deWords, trWords, types] = await Promise.all([
+        const [deWords, trWords] = await Promise.all([
             fetchTextFile('de.txt'),
-            fetchTextFile('tr.txt'),
-            fetchTextFile('types.txt')
+            fetchTextFile('tr.txt')
         ]);
 
         const deArray = deWords.split('\n').map(word => word.trim()).filter(Boolean);
         const trArray = trWords.split('\n').map(word => word.trim()).filter(Boolean);
-        const typesArray = types.split('\n').map(type => type.trim()).filter(Boolean);
 
         // Store word data globally for search and display purposes
         window.wordData = deArray.map((deWord, index) => ({
             deWord,
-            trWord: trArray[index] || '',
-            type: typesArray[index] || ''
+            trWord: trArray[index] || ''
         }));
 
         displayWords(window.wordData); // Initially display all words
@@ -41,7 +38,7 @@ function displayWords(wordData) {
         const wordItem = document.createElement('div');
         wordItem.classList.add('word-item');
         wordItem.innerHTML = `
-            <strong>${item.deWord}</strong> → ${item.trWord} <span>[${item.type}]</span>
+            <strong>${item.deWord}</strong> → ${item.trWord}
             <div class="word-content" id="content-${item.deWord}" style="display: none;">
                 <div class="level-select">
                     <label for="level-${item.deWord}">Seviye Seçin:</label>
@@ -94,7 +91,7 @@ function toggleContentDisplay(deWord, wordItem) {
 // Filter words based on search input
 function filterWords(searchQuery) {
     const filteredWords = window.wordData.filter(item =>
-        [item.deWord, item.trWord, item.type].some(word =>
+        [item.deWord, item.trWord].some(word =>
             word.toLowerCase().includes(searchQuery.toLowerCase())
         )
     );
