@@ -1,0 +1,192 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+}
+
+/* Header Styles */
+.header {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #181818;
+    border-bottom: 1px solid #333;
+}
+
+.header .name {
+    font-size: 22px;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-right: 15px;
+    cursor: default;
+}
+
+/* App Explanation Styles */
+.app-explanation {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 6px;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.app-explanation h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.app-explanation p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #bbb;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    width: 50%;
+    max-width: 500px;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    outline: none;
+    cursor: text;
+}
+
+.search-bar::placeholder {
+    color: #888;
+}
+
+/* Word List Container */
+.word-list {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+/* Word Item Styles */
+.word-item {
+    background-color: #1a1a1a;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.word-item:hover {
+    background-color: #333;
+}
+
+.word-item strong {
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+/* Expanded Content Styles */
+.word-item.expanded {
+    background-color: #333;
+}
+
+.word-content {
+    background-color: #222;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+/* Level Selector Styles */
+.level-select {
+    margin-top: 10px;
+    background-color: #2a2a2a;
+    padding: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e0e0e0;
+}
+
+.level-selector {
+    background-color: #333;
+    color: #e0e0e0;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    cursor: pointer;
+    width: 60%;
+    font-size: 14px;
+}
+
+.level-selector:focus {
+    outline: 2px solid #444;
+}
+
+/* Generate Button Styles */
+.generate-btn {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #333;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.generate-btn:hover {
+    background-color: #444;
+}
+
+/* Generated Sentence Display */
+.generated-sentence {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 6px;
+    display: none;
+}
+
+.generated-sentence strong {
+    color: #e0e0e0;
+}
+
+/* Loading Spinner Styles */
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.spinner {
+    border: 3px solid #fff;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

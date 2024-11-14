@@ -1,0 +1,150 @@
+hallo
+hi
+Guten Morgen
+Guten Tag
+Gute Nacht
+grüß dich
+servus
+Guten Abend
+Bis später
+Auf Wiedersehen
+Tschüss
+Bis bald
+die Tageszeit
+Morgen
+morgen
+Bis morgen
+Begrüßung
+Verabschiedung
+Frau
+Herr
+danke
+super
+gut
+es geht
+nicht gut
+schlecht
+buchstabieren
+hören
+schreiben
+heißen
+sein
+kommen
+wohnen
+auch
+die Herkunft
+sprechen
+der Freund
+die Freundin
+Englisch
+Deutsch
+Französisch
+Italienisch
+Österreich
+die Schweiz
+Spanien
+Italien
+England
+Deutsche
+Engländer
+Französin
+Türkin
+Italiener
+Spanier
+und
+das Wohnort
+Fußball
+Basketball
+das Instrument
+Sport
+Musik
+die Sprache
+machen
+malen
+lernen
+singen
+spielen
+schwimmen
+die Schulsachen
+die Klasse
+die Tafel
+die Landkarte
+die Mappe
+der Computer
+das Lineal
+das Buch
+der Schreibtisch
+die Kreide
+das Mäppchen
+der Marker
+das Wörterbuch
+der Spitzer
+die Schere
+der Stuhl
+der Bleistift
+der Kleber
+die Sporttasche
+der Radiergummi
+das Blatt
+das Handy
+der Kuli
+der Rucksack
+die Einkaufsliste
+das Heft
+neu
+alt
+groß
+klein
+dick
+dünn
+rot
+blau
+grün
+gelb
+orange
+rosa
+lila
+violett
+weiß
+schwarz
+grau
+braun
+der Buntstift
+antworten
+fragen
+aufstehen
+lesen
+das Lieblingsfach
+die Farbe
+die Lieblingsfarbe
+Geografie
+Literatur
+Geschichte
+Kunst
+Physik
+Biologie
+Mathe
+Informatik
+Religion
+Chemie
+der Tag
+Montag
+Dienstag
+Mittwoch
+Donnerstag
+Freitag
+Samstag
+Sonntag
+interessant
+uninteressant
+spannend
+langweilig
+wichtig
+ganz gut
+mögen
+immer
+finden
+singen
+die Wochentage
+das Wochenende
+der Schüler
