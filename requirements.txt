@@ -1,0 +1,4 @@
+deepl
+openai
+python-dotenv
+flask
