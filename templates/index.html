@@ -4,35 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dSözlük</title>
+
     <!-- Favicon and CSS -->
     <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <!-- Header Section with Site Name and Search Bar -->
+    <!-- Header Section -->
     <header class="header">
         <div class="name" onclick="window.location.href = '/'">dSözlük</div>
-        <input type="text" class="search-bar" placeholder="Kelime veya kelime türü ara...">
+        <input type="text" class="search-bar" placeholder="Kelime ara...">
     </header>
 
-    <!-- Explanation Header Section -->
+    <!-- Explanation Section -->
     <section class="app-explanation">
-        <h2>dSözlük - Cümle Oluşturucu ile Almanca-Türkçe Sözlük.</h2>
-        <p>Bu uygulama ile kelimeleri arayabilir ve çevirileri öğrenebilir, ayrıca farklı dil seviyelerinde örnek cümleler oluşturabilirsiniz ve bunların çevirilerini görebilirsiniz. Türkiye'de ♡ ile yapıldı.</p>
+        <h2>dSözlük - Cümle Oluşturucu ile Almanca-Türkçe Sözlük</h2>
+        <p>
+            Bu uygulama ile kelimeleri arayabilir, çevirileri öğrenebilir, farklı dil seviyelerinde örnek cümleler oluşturabilirsiniz.
+            Ayrıca, bu cümlelerin çevirilerini görebilirsiniz. Türkiye'de ♡ ve AI ile yapıldı.
+            Meta, Groq, DeepL ve Anaconda'nın katkılarıyla.
+        </p>
     </section>
 
-    <!-- Word List Section for Dynamic Content -->
+    <!-- Word List Section -->
     <main class="word-list" id="word-list">
         <!-- Dynamic word content will be inserted here -->
     </main>
 
     <!-- Footer Section -->
+    <hr class="footer-separator">
     <footer class="footer">
-        <p>dSözlük <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License v3.0</a> altında lisanslanmıştır. Kaynak kodu için <a href="https://github.com/mdonmez/dSozluk" target="_blank"> GitHub</a> deposuna bakın.</p>
+        <p>
+            dSözlük, <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License v3.0</a> altında lisanslanmıştır. 
+            Kaynak kodu için <a href="https://github.com/mdonmez/dSozluk" target="_blank">GitHub</a> deposuna bakın.
+        </p>
     </footer>
 
     <!-- JavaScript -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>

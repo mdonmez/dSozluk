@@ -9,6 +9,12 @@ body {
     flex-direction: column;
     align-items: center;
     cursor: default;
+    overflow-x: hidden;
+}
+
+/* HTML Styles */
+html {
+    overflow-x: hidden;
 }
 
 /* Header Styles */
@@ -30,7 +36,7 @@ body {
     cursor: default;
 }
 
-/* App Explanation Styles */
+/* App Explanation Section */
 .app-explanation {
     width: 80%;
     max-width: 800px;
@@ -189,4 +195,31 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Footer Styles */
+.footer-separator {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: none;
+    border-top: 1px solid #333;
+    opacity: 0.8;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #181818;
+    color: #bbb;
+}
+
+.footer a {
+    color: #888;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #e0e0e0;
 }

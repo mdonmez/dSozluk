@@ -8,6 +8,11 @@ from openai import OpenAI
 load_dotenv()
 GROQCLOUD_API_KEY = os.getenv("GROQCLOUD_API_KEY")
 DEEPL_API_KEY = os.getenv("DEEPL_API_KEY")
+
+# Ensure API keys are available
+if not GROQCLOUD_API_KEY or not DEEPL_API_KEY:
+    raise ValueError("API keys are missing. Please check the .env file.")
+
 client = OpenAI(api_key=GROQCLOUD_API_KEY, base_url="https://api.groq.com/openai/v1")
 translator = deepl.Translator(DEEPL_API_KEY)
 
@@ -20,58 +25,74 @@ DICTIONARY_PATH = os.path.join(BASE_DIR, "dictionaries")
 def sentencegenerate(level: str, word: str):
     try:
         completion = client.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="llama-3.1-8b-instant",
             messages=[
-        {
-            "role": "system",
-            "content": "Generate a single short-medium German sentence at the provided level using the provided word. Ensure it fits the language level and contains only one sentence with no additional text or explanations."
-        },
-        {
-            "role": "user",
-            "content": "Level: A2, Word: schlecht"
-        },
-        {
-            "role": "assistant",
-            "content": "Die Suppe war gestern Abend schlecht."
-        },
-        {
-            "role": "user",
-            "content": "Level: A1, Word: der Freund"
-        },
-        {
-            "role": "assistant",
-            "content": "Ich habe einen Freund."
-        },
-        {
-            "role": "user",
-            "content": "Level: B1, Word: das Instrument"
-        },
-        {
-            "role": "assistant",
-            "content": "Mein Schwager spielt das Instrument sehr gut."
-        },
-        {
-            "role": "user",
-            "content": "Level: A2, Word: die Klasse"
-        },
-        {
-            "role": "assistant",
-            "content": "Ich bin in der ersten Klasse."
-        },
-        {
-            "role": "user",
-            "content": "Level: C1, Word: das Blatt"
-        },
-        {
-            "role": "assistant",
-            "content": "Vor einigen Jahren habe ich auf einem Blatt Papier eine sehr persönliche Geschichte meiner Großmutter aufgeschrieben."
-        },
-        {
-            "role": "user",
-            "content": f"Level: {level}, Word: {word}"
-        }
-        ],
-            temperature=0.9,
+                {
+                    "role": "system",
+                    "content": """Generate a single short-medium German sentence at the provided level using the provided word. The provided word will be in the format 'GermanWord|TurkishWord(s)'. Ensure the German word fits the language level and choose the meaning most relevant to the context of the word in the target language. For ambiguous words with multiple meanings, prioritize less general contexts (e.g., use *spielen* for "çalmak (enstrüman)" rather than "oynamak" unless explicitly referring to sports). Include only one sentence without additional text or explanations."""
+                },
+                {
+                    "role": "user",
+                    "content": "Level: A2, Word: schlecht|kötü"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Die Suppe war gestern Abend schlecht."
+                },
+                {
+                    "role": "user",
+                    "content": "Level: A1, Word: der Freund|erkek arkadaş"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Ich habe einen Freund."
+                },
+                {
+                    "role": "user",
+                    "content": "Level: B1, Word: das Instrument|enstrüman"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Mein Schwager spielt das Instrument sehr gut."
+                },
+                {
+                    "role": "user",
+                    "content": "Level: A2, Word: die Klasse|sınıf"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Ich bin in der ersten Klasse."
+                },
+                {
+                    "role": "user",
+                    "content": "Level: C1, Word: das Blatt|yaprak"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Vor einigen Jahren habe ich auf einem Blatt Papier eine sehr persönliche Geschichte meiner Großmutter aufgeschrieben."
+                },
+                {
+                    "role": "user",
+                    "content": "Level: A1, Word: die Sprache|dil"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Ich lerne gerade eine neue Sprache."
+                },
+                {
+                    "role": "user",
+                    "content": "Level: B1, Word: spielen|oynamak, çalmak (enstrüman)"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Ich spiele jeden Abend Gitarre, weil es mich entspannt."
+                },
+                {
+                    "role": "user",
+                    "content": f"Level: {level}, Word: {word}"
+                }
+            ],
+            temperature=1,
             top_p=1,
             stream=False,
         )
@@ -101,17 +122,26 @@ def get_dictionary(filename):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        word = request.form.get("word")
+        word_pair = request.form.get("word")  # Example: "Haus|Ev"
         level = request.form.get("level")
         
         # Debug logs
-        print(f"Received word: {word}, level: {level}")
+        print(f"Received word pair: {word_pair}, level: {level}")
 
-        sentence = sentencegenerate(level, word)
+        try:
+            # Split the word pair into German and Turkish words
+            german_word, turkish_word = word_pair.split("|")
+        except ValueError:
+            return jsonify({"error": "Invalid word pair format. Expected format: 'German|Turkish'."}), 400
+
+        # Generate sentence
+        sentence = sentencegenerate(level, german_word)
+        
+        # Translate the sentence into Turkish
         translated_sentence = sentencetranslate(sentence, "TR")
         
         return jsonify({"sentence": sentence, "translated_sentence": translated_sentence})
-    
+
     return render_template("index.html")
 
 if __name__ == "__main__":
