@@ -1,4 +1,4 @@
-# dSozluk
+# dSözlük
 A simple German-Turkish dictionary with searcher, level-based sentence generator and translator.
 
 **Note:** Don't forget to add .env file to your project and adding the API keys.
