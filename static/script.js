@@ -66,7 +66,7 @@ function createWordItem(item) {
             <div class="generated-sentence" id="sentence-${item.deWord}" style="display: none;">
                 <div class="loading-spinner" id="loading-${item.deWord}" style="display: none;">
                     <div class="spinner"></div>
-                    <span>Yükleniyor...</span>
+                    <span>Cümle oluşturuluyor...</span>
                 </div>
             </div>
         </div>
@@ -165,7 +165,7 @@ function showLoadingSpinner(container) {
     container.innerHTML = `
         <div class="loading-spinner">
             <div class="spinner"></div>
-            <span>Yükleniyor...</span>
+            <span>Cümle oluşturuluyor...</span>
         </div>
     `;
 }
