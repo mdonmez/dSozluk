@@ -108,6 +108,12 @@ function toggleContentDisplay(deWord, wordItem) {
 
 // Filter words based on search input
 function filterWords(searchQuery) {
+    const appExplanation = document.querySelector('.app-explanation');
+    const footer = document.querySelector('footer');
+    
+    appExplanation.style.display = searchQuery ? 'none' : 'block';
+    footer.style.display = searchQuery ? 'none' : 'block';
+    
     const filteredWords = window.wordData.filter(item =>
         [item.deWord, item.trWord].some(word =>
             word.toLowerCase().includes(searchQuery.toLowerCase())
