@@ -13,21 +13,46 @@ dSözlük is a simple German-Turkish dictionary application with a sentence gene
 
 ```
 .
-├── app.py                # Flask application
+├── app.py                  # Entry point to run the Flask application
+├── src                     # Source code
+│   ├── __init__.py
+│   ├── main.py             # Flask application logic
+│   └── services            # Business logic and API clients
+│       ├── __init__.py
+│       ├── api_clients.py
+│       └── sentence_service.py
 ├── dictionaries
-│   ├── de.txt            # German word list
-│   └── tr.txt            # Turkish word list
+│   ├── de.txt              # German word list
+│   └── tr.txt              # Turkish word list
 ├── static
-│   ├── script.js         # Frontend JavaScript
-│   └── style.css         # CSS styles
+│   ├── css
+│   │   └── style.css       # Stylesheet
+│   ├── js
+│   │   ├── api.js          # API handling
+│   │   ├── main.js         # Main script
+│   │   └── ui.js           # UI handling
+│   └── favicon.png
 ├── templates
-│   └── index.html        # HTML template
-├── .env                  # Environment variables (API keys)
-├── requirements.txt      # Python dependencies
-├── pyproject.toml        # Project metadata
-├── LICENSE               # GPL v3.0 License
+│   └── index.html          # HTML template
+├── .env                    # Environment variables (API keys)
+├── requirements.txt        # Python dependencies
+├── pyproject.toml          # Project metadata
+├── LICENSE                 # GPL v3.0 License
 └── README.md
 ```
+
+## Architecture
+
+The application is built with a simple client-server architecture:
+
+-   **Backend**: A Flask application that serves the frontend and provides an API for sentence generation and translation. The backend is structured into services to separate concerns:
+    -   `main.py`: Handles the Flask routes and main application logic.
+    -   `services/api_clients.py`: Manages the clients for the Groq and DeepL APIs.
+    -   `services/sentence_service.py`: Contains the business logic for generating and translating sentences.
+-   **Frontend**: A single-page application built with vanilla JavaScript, HTML, and CSS. The frontend is responsible for displaying the word list, handling user input, and making API calls to the backend. The JavaScript is modularized for better maintainability:
+    -   `api.js`: Handles all communication with the backend.
+    -   `ui.js`: Manages DOM manipulation and UI updates.
+    -   `main.js`: The main script that ties everything together.
 
 ## Setup and Installation
 
@@ -43,7 +68,7 @@ dSözlük is a simple German-Turkish dictionary application with a sentence gene
     ```bash
     python -m venv .venv
     source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
-    uv add -r requirements.txt
+    pip install -r requirements.txt
     ```
 
 3.  **Create a `.env` file and add your API keys:**
@@ -56,33 +81,21 @@ dSözlük is a simple German-Turkish dictionary application with a sentence gene
 4.  **Run the application:**
 
     ```bash
-    uv run app.py
+    python app.py
     ```
 
     The application will be available at `http://127.0.0.1:5000`.
 
-## How it Works
+## Contributing
 
-1.  The user selects a word from the list or searches for a word.
-2.  The user selects a language level (A1-C2).
-3.  The user clicks the "Cümle Oluştur" (Generate Sentence) button.
-4.  The Flask backend receives the request and calls the `sentencegenerate` function.
-5.  The `sentencegenerate` function sends a request to the Groq API with the word and level to generate a German sentence.
-6.  The generated sentence is then passed to the `sentencetranslate` function, which calls the DeepL API to translate the sentence into Turkish.
-7.  The German sentence and its Turkish translation are returned to the frontend and displayed to the user.
+Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
 
-## Technologies Used
-
--   **Backend**: Flask
--   **Frontend**: HTML, CSS, JavaScript
--   **APIs**:
-    -   Groq API (for sentence generation)
-    -   DeepL API (for translation)
--   **Python Libraries**:
-    -   `flask`
-    -   `python-dotenv`
-    -   `deepl`
-    -   `openai` (used with Groq)
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feature/your-feature`).
+3.  Make your changes.
+4.  Commit your changes (`git commit -m 'Add some feature'`).
+5.  Push to the branch (`git push origin feature/your-feature`).
+6.  Open a pull request.
 
 ## License
 

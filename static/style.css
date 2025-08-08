@@ -1,4 +1,7 @@
-/* General Body Styles */
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
@@ -12,12 +15,14 @@ body {
     overflow-x: hidden;
 }
 
-/* HTML Styles */
 html {
     overflow-x: hidden;
 }
 
-/* Header Styles */
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
 .header {
     width: 100%;
     padding: 12px;
@@ -39,7 +44,31 @@ html {
     cursor: default;
 }
 
-/* App Explanation Section */
+/* ==========================================================================
+   Search Bar
+   ========================================================================== */
+
+.search-bar {
+    width: 50%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #282828;
+    border-radius: 20px;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    outline: none;
+    cursor: text;
+}
+
+.search-bar::placeholder {
+    color: #aaaaaa;
+}
+
+/* ==========================================================================
+   App Explanation
+   ========================================================================== */
+
 .app-explanation {
     width: 80%;
     max-width: 800px;
@@ -65,32 +94,16 @@ html {
     color: #cccccc;
 }
 
-/* Search Bar Styles */
-.search-bar {
-    width: 50%;
-    max-width: 500px;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #282828;
-    border-radius: 20px;
-    background-color: #2b2b2b;
-    color: #ffffff;
-    outline: none;
-    cursor: text;
-}
+/* ==========================================================================
+   Word List
+   ========================================================================== */
 
-.search-bar::placeholder {
-    color: #aaaaaa;
-}
-
-/* Word List Container */
 .word-list {
     width: 80%;
     max-width: 800px;
     margin-top: 20px;
 }
 
-/* Word Item Styles */
 .word-item {
     background-color: #1a1a1a;
     margin: 10px 0;
@@ -109,10 +122,13 @@ html {
     font-size: 16px;
 }
 
-/* Expanded Content Styles */
 .word-item.expanded {
     background-color: #262626;
 }
+
+/* ==========================================================================
+   Word Content
+   ========================================================================== */
 
 .word-content {
     background-color: #222;
@@ -121,7 +137,6 @@ html {
     margin-top: 12px;
 }
 
-/* Level Selector Styles */
 .level-select {
     margin-top: 10px;
     background-color: #2b2b2b;
@@ -149,7 +164,6 @@ html {
     outline: 2px solid #444;
 }
 
-/* Generate Button Styles */
 .generate-btn {
     margin-top: 15px;
     padding: 14px;
@@ -166,7 +180,10 @@ html {
     background-color: #444;
 }
 
-/* Generated Sentence Display */
+/* ==========================================================================
+   Generated Sentence
+   ========================================================================== */
+
 .generated-sentence {
     margin-top: 15px;
     padding: 12px;
@@ -181,7 +198,10 @@ html {
     color: #ffffff;
 }
 
-/* Loading Spinner Styles */
+/* ==========================================================================
+   Spinner
+   ========================================================================== */
+
 .loading-spinner {
     display: flex;
     align-items: center;
@@ -203,7 +223,10 @@ html {
     100% { transform: rotate(360deg); }
 }
 
-/* Footer Styles */
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
 .footer-separator {
     width: 80%;
     max-width: 800px;
