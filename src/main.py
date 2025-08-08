@@ -30,10 +30,12 @@ def index():
             return jsonify({"error": "Missing 'word' or 'level' in request."}), 400
 
         try:
-            german_word, _ = word_pair.split("|")
+            german_word, turkish_word = word_pair.split("|")
+            if not german_word or not turkish_word:
+                raise ValueError("Both German and Turkish words must be non-empty.")
         except ValueError:
             logging.error(f"Invalid word pair format: {word_pair}")
-            return jsonify({"error": "Invalid word pair format. Expected 'German|Turkish'."}), 400
+            return jsonify({"error": "Invalid word pair format. Expected 'German|Turkish' with both parts non-empty."}), 400
 
         # Generate German sentence
         sentence = generate_german_sentence(level, german_word)
