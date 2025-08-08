@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 trWord: trArray[index] || ''
             }));
 
-            window.wordData = wordData;
             displayWords(wordData, wordListContainer);
             addEventListeners();
         } catch (error) {
