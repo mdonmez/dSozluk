@@ -28,7 +28,7 @@
         <p>
             Bu uygulama sayesinde kelime araştırması yapabilir ve çevirilerini öğrenebilirsiniz. Ayrıca farklı dil
             seviyelerinde örnek cümleler oluşturup bu cümlelerin çevirilerini de kolaylıkla görüntüleyebilirsiniz.
-            Uygulama, günlük hayatta sıkça kullanılan 150 kelimelik bir temel kelime listesi üzerine hazırlanmıştır.
+            Uygulama, günlük hayatta sıkça kullanılan ~150 kelimelik bir temel kelime listesi üzerine hazırlanmıştır.
         </p>
     </section>
 
@@ -38,15 +38,19 @@
     </main>
 
     <!-- Footer Section -->
-    <hr class="footer-separator">
     <footer class="footer">
-        <p>
-            dSözlük, <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPL v3.0</a> lisanslı
-            açık kaynak bir projedir.
-            Kaynak kodu <a href="https://github.com/mdonmez/dSozluk" target="_blank">GitHub</a>'da mevcuttur.<br>
-            Bu uygulama garanti vermez. Meta, Groq, DeepL ve Anaconda'nın katkılarıyla Türkiye'de AI ve ♡ ile
-            geliştirildi.
-        </p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <span class="copyright">2025 dSözlük</span>
+                <span class="separator">•</span>
+                <a href="https://github.com/mdonmez/dSozluk" target="_blank">GitHub</a>
+                <span class="separator">•</span>
+                <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPL v3.0</a>
+            </div>
+            <div class="footer-text">
+                AI ve ♡ ile geliştirildi
+            </div>
+        </div>
     </footer>
     <!-- JavaScript -->
     <script src="{{ url_for('static', filename='js/api.js') }}"></script>
