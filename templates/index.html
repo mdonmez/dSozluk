@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dSözlük</title>
 
     <!-- Favicon and CSS -->
-    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon.png') }}?v=1">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}?v=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon.png') }}">
+    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
     <!-- Header Section -->
@@ -21,7 +26,9 @@
     <section class="app-explanation">
         <h2>dSözlük - Cümle Oluşturucu ile Almanca/Türkçe Sözlük</h2>
         <p>
-            Bu uygulama sayesinde kelime araştırması yapabilir ve çevirilerini öğrenebilirsiniz. Ayrıca farklı dil seviyelerinde örnek cümleler oluşturup bu cümlelerin çevirilerini de kolaylıkla görüntüleyebilirsiniz. Uygulama, günlük hayatta sıkça kullanılan 150 kelimelik bir temel kelime listesi üzerine hazırlanmıştır.
+            Bu uygulama sayesinde kelime araştırması yapabilir ve çevirilerini öğrenebilirsiniz. Ayrıca farklı dil
+            seviyelerinde örnek cümleler oluşturup bu cümlelerin çevirilerini de kolaylıkla görüntüleyebilirsiniz.
+            Uygulama, günlük hayatta sıkça kullanılan 150 kelimelik bir temel kelime listesi üzerine hazırlanmıştır.
         </p>
     </section>
 
@@ -34,9 +41,11 @@
     <hr class="footer-separator">
     <footer class="footer">
         <p>
-            dSözlük, <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPL v3.0</a> lisanslı açık kaynak bir projedir.
+            dSözlük, <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPL v3.0</a> lisanslı
+            açık kaynak bir projedir.
             Kaynak kodu <a href="https://github.com/mdonmez/dSozluk" target="_blank">GitHub</a>'da mevcuttur.<br>
-            Bu uygulama garanti vermez. Meta, Groq, DeepL ve Anaconda'nın katkılarıyla Türkiye'de AI ve ♡ ile geliştirildi.
+            Bu uygulama garanti vermez. Meta, Groq, DeepL ve Anaconda'nın katkılarıyla Türkiye'de AI ve ♡ ile
+            geliştirildi.
         </p>
     </footer>
     <!-- JavaScript -->
@@ -44,4 +53,5 @@
     <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
+
 </html>

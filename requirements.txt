@@ -1,5 +1,0 @@
-deepl
-openai
-python-dotenv
-flask
-gunicorn
